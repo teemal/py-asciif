@@ -9,7 +9,7 @@ import imageio
 
 n_frame = 0
 
-with Image.open('wow.gif') as im:
+with Image.open('devitobb.gif') as im:
     n_frame = im.n_frames
     print(str(n_frame) + " frames")
     if (im.is_animated):
@@ -21,41 +21,41 @@ with Image.open('wow.gif') as im:
 
 
 #CONVERT GIFS TO TXTS ====================================================
-# def monochrome(imgname, extension):
-#     photo = Image.open(imgname+extension)
-#     photo = photo.convert('1')  
-#     return photo
+def monochrome(imgname, extension):
+    photo = Image.open(imgname+extension)
+    photo = photo.convert('1')  
+    return photo
 
 
-# def readpixels(img, x, y):
-#     pixel = img.load()  
-#     return pixel[x,y] 
+def readpixels(img, x, y):
+    pixel = img.load()  
+    return pixel[x,y] 
 
 
-# def makeascii(img, imgname):
-#     width, height = img.size
-#     x = 0  
-#     y = 0  
+def makeascii(img, imgname):
+    width, height = img.size
+    x = 0  
+    y = 0  
 
-#     chars = {0: '$', 255: ' '}
+    chars = {0: '$', 255: ' '}
 
-#     text_file = open(imgname+'.txt', 'w')
+    text_file = open(imgname+'.txt', 'w')
 
-#     while y <= height - 1:
-#         rgb = readpixels(img, x, y)
-#         text_file.write(chars[rgb])
+    while y <= height - 1:
+        rgb = readpixels(img, x, y)
+        text_file.write(chars[rgb])
 
-#         x += 1  
+        x += 1  
 
-#         if x == width - 1:
-#             text_file.write('\n')
-#             x = 0
-#             y += 1
+        if x == width - 1:
+            text_file.write('\n')
+            x = 0
+            y += 1
 
-#     text_file.close()
+    text_file.close()
 
-# for i in range(0, n_frame):
-#     makeascii(monochrome(str(i), ".png"), str(i))
+for i in range(0, n_frame):
+    makeascii(monochrome(str(i), ".png"), str(i))
 
 #SAVE TXTs TO PNGs ================================================
 
